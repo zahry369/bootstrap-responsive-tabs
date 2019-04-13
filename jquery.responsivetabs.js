@@ -34,8 +34,8 @@
                     var $dropdown = $element.find('.responsivetabs-more');
                             
                     if(!$dropdown.length) {
-                        var dropdownMarkup = '<li class="dropdown responsivetabs-more">'
-                        + '<a href="#" class="dropdown-toggle" data-toggle="dropdown">...</a>'
+                        var dropdownMarkup = '<li class="nav-item dropdown ml-auto responsivetabs-more">'
+                        + '<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">...</a>'
                         + '<ul class="dropdown-menu dropdown-menu-right">'
                         + '</ul></li>';
                         $dropdown = $(dropdownMarkup);
@@ -53,6 +53,11 @@
                         storeTabs($thisTab, $destination);
                     }
                     storeTabs($previousTab, $destination);
+                            
+                    // if i save the position tab i need to add class "active"
+	        if($element.find('.dropdown-item').hasClass('active')) {
+		$element.find('.nav-item-responsive-more .nav-link').addClass("active");
+	        }
                             
                     return;
 
